@@ -1,0 +1,125 @@
+\documentclass{ctexart}
+
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{algorithm}  
+\usepackage{algpseudocode}  
+\usepackage{amsmath}
+\usepackage[backref]{hyperref}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\abstractname}{Abstract}
+\renewcommand{\refname}{Reference}
+
+\title{Mandelbrot Set 的生成和探索}
+
+\author{Li Fangyuan \\ Statistics   3190104914}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  In this paper, we gave a brief introduction of Mandelbrot set, explained its mathematical thoery. Then we implemented the algorithem using C++, listed pictures as emaxple, and draw a conclusion as the end.
+\end{abstract}
+
+\section{Introduction}
+Mandelbrot Set is a set that for each complex $ C $, it can generate a iteration according to a certain iteration rule. 
+And depending on the sequence of the iteration, we give it a corresponding color. 
+A picture full of beauty of math then can be presented.
+
+\section{Background of the Problem}
+Amarican Mathematician Benoit B. Mandelbrot first came up with this facinating set in 1975, and he called it "Devil's polymer". \cite{H42}
+
+\section{Mathematical Theory}
+According to the equation:
+
+\begin{equation}
+  Z_{n+1} = Z_{n}^{2} + C  
+\end{equation}
+
+For each $ C \in \mathbb{C} $, start iteration from $ 0.0 + 0.0j $, and if the series is convergent, then $ C $ is in Mandelbrot Set. \cite{H43}
+
+\section{Algorithem}
+
+\begin{algorithm}[h]  
+  \caption{Iteration in Mandelbrot Set}  
+  \label{alg:Framwork}  
+  \begin{algorithmic}  
+    \Require  
+        A maximal iteration number N, points of a picture
+     \Ensure 
+        Colors of each point in the picture
+      \For{ each point of the picture}
+          \State z = 0.0 + 0.0j
+          \State c = the complex number represented by the point \cite{H44}
+          \For{int i=1 to N} 
+	      \If { |z|>2 } 
+                  \State This point is not convergent, give it color according to i
+                  \State Break to go to the next point
+              \Else   \State $z = z^{2} + c$
+              \EndIf
+              \If{ the loop reaches its natural end }
+              \State Give this point a corresponding color like black
+              \EndIf
+          \EndFor  
+      \EndFor
+  \end{algorithmic}  
+\end{algorithm}
+\section{Example}
+
+Mandelbrot Set with different maximal iteration times:
+
+\begin{figure}[htbp]
+\centering
+\subfigure[$N=10$]{
+\includegraphics[width=0.18\textwidth,height=0.13\textwidth, natwidth=1550,natheight=942]{pic/p1_005_010.bpm} \label{1}
+}
+\quad
+\subfigure[$N=100$]{
+\includegraphics[width=0.18\textwidth,height=0.13\textwidth,natwidth=1550,natheight=942]{pic/p2_005_0100.bpm} \label{2} 
+}
+\quad
+\subfigure[$N=1000$]{
+\includegraphics[width=0.18\textwidth,height=0.13\textwidth, natwidth=1550,natheight=942]{pic/p3_005_01000.bpm}\label{3}
+}
+\caption{Mandelbrot Set with different maximal iteration times}
+\end{figure}
+
+This indicates that the larger the maximal iteration time is, the smoother the boundary seems to be in the picture, and if we zoom in, we can see more details as the maximal iteration time is larger.\\
+Choose part of the picture and zoom in:
+
+\vspace{-1.8cm}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\textwidth,height=0.5\textwidth, natwidth=1910,natheight=1442]{pic/p4__01509035_0100.bpm} \label{4}
+  \caption{Zoom in}
+\end{figure}
+
+We can see that Mandelbrot Set has similar structure when zoomed in at infinity.\\
+Paint the points according to their iteration times:
+
+\begin{figure}[htbp]
+\centering
+\subfigure[Whole]{
+\includegraphics[width=0.3\textwidth,height=0.25\textwidth, natwidth=1850,natheight=1142]{pic/p5__005_5100.bpm} \label{5}
+}
+\quad
+\subfigure[Zoom in]{
+\includegraphics[width=0.3\textwidth,,height=0.25\textwidth,natwidth=1780,natheight=1142]{pic/p6__01509035_5100.bpm} \label{6} 
+}
+\caption{Colored Mandelbrot Set}
+\end{figure}
+
+Paint Mandelbrot Set according to specific iteration-time-funcion can create beautiful pictures.
+
+\section{Conclusion}
+Mandelbrot Set can be presented as a beautiful picture, and it can always have the similar structure and clear details no matter how many the magnificantion times is, which is called "self-similarity" \cite{H41}.
+Morever, combined with well-designed color function according to the maximal iteration time, Mandelbrot Set can demonstrate unimaginable pattern.
+
+\bibliographystyle{plain}
+\bibliography{ref}
+
+\end{document}
