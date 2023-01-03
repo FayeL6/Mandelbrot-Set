@@ -1,14 +1,16 @@
 # Mandelbrot-Set
-MathSoft  
+This is a project of *Math Software*. In Linux, run **createbmp** to generate the image of mandelbrot set and use **Makefile** to view the homework report.
 
-### Homework4:
+### Instruction:
 
-可执行文件：<br>
-createbmp   无输入运行,查看usage <br>
-            输入参数运行，产生bmp文件。<br>
-            
- <br>
-            
-Makefile: <br>
-make report   生成homework4.pdf  <br>
-make clean   删除homework4.pdf
+##### Executable files：
+
+createbmp   
+- run without input to view instructions.
+- input parameters and run the file to generate bmp files.
+
+<br>
+
+Makefile: 
+- make report: generate homework4.pdf.
+- make clean: delete homework4.pdf
