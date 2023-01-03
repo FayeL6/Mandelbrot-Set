@@ -9,8 +9,6 @@ createbmp
 - run without input to view instructions.
 - input parameters and run the file to generate bmp files.
 
-<br>
-
 Makefile: 
 - make report: generate homework4.pdf.
 - make clean: delete homework4.pdf
